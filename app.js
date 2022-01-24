@@ -33,6 +33,31 @@ app.get("/api/v1/tours", (req, res) => {
   });
 });
 
+app.get("/api/v1/tours/:id", (req, res) => {
+  // assigns automatically the requesto to ":id"
+  console.log(req.params);
+
+  // convert id to string
+  // when multiplying by 1 it turns it into a string!!!
+  const id = req.params.id * 1;
+  const tour = tours.find((el) => el.id === id);
+
+  // if (id > tours.length) {
+  if (!tour) {
+    return res.status(404).json({
+      status: "fail",
+      message: "Invalid ID",
+    });
+  }
+
+  res.status(200).json({
+    status: "success",
+    data: {
+      tour,
+    },
+  });
+});
+
 // Create a new tour - it's the SAME route as GET request
 app.post("/api/v1/tours", (req, res) => {
   //   console.log(req.body);
