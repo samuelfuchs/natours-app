@@ -81,19 +81,35 @@ app.post("/api/v1/tours", (req, res) => {
   );
 });
 
-app.patch("/api/v1/tours/:id", (req, res) => {
+// PATCH
+// app.patch("/api/v1/tours/:id", (req, res) => {
+//   if (req.params.id * 1 > tours.length) {
+//     return res.status(404).json({
+//       status: "fail",
+//       message: "Invalid ID",
+//     });
+//   }
+
+//   res.status(200).json({
+//     status: "success",
+//     data: {
+//       tour: "<Updated tour here...>",
+//     },
+//   });
+// });
+
+// DELETE
+app.delete("/api/v1/tours/:id", (req, res) => {
   if (req.params.id * 1 > tours.length) {
     return res.status(404).json({
       status: "fail",
       message: "Invalid ID",
     });
   }
-
-  res.status(200).json({
+  // 204 - Data no longer exists
+  res.status(204).json({
     status: "success",
-    data: {
-      tour: "<Updated tour here...>",
-    },
+    data: null,
   });
 });
 
