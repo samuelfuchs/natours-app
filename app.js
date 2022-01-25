@@ -1,7 +1,12 @@
 const fs = require("fs");
 const express = require("express");
+const morgan = require("morgan");
 
 const app = express();
+
+// 1) MIDDLEWARE
+
+app.use(morgan("dev"));
 
 // MIDDLEWARE - modify the incomming data
 app.use(express.json());
@@ -33,6 +38,7 @@ const tours = JSON.parse(
   fs.readFileSync(`${__dirname}/dev-data/data/tours-simple.json`)
 );
 
+// ROUTE HANDLER
 const getAllTours = (req, res) => {
   console.log(req.requestTime);
   res.status(200).json({
@@ -121,6 +127,7 @@ const deleteTour = (req, res) => {
   });
 };
 
+// ROUTES
 // app.get("/api/v1/tours", getAllTours);
 // app.get("/api/v1/tours/:id", getTour);
 // app.post("/api/v1/tours", createTour);
