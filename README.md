@@ -1,4 +1,4 @@
-# natours-app
+# Natours App
 
 Tech stack
 
