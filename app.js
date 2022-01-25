@@ -6,6 +6,18 @@ const app = express();
 // MIDDLEWARE - modify the incomming data
 app.use(express.json());
 
+// Next is always the 3rd option. We can call it whatever we want
+app.use((req, res, next) => {
+  console.log("Hello from the middleware!!");
+  // we have to call next() to continue the cicle
+  next();
+});
+
+app.use((req, res, next) => {
+  req.requestTime = new Date().toISOString();
+  next();
+});
+
 // app.get("/", (req, res) => {
 //   res
 //     .status(200)
@@ -22,8 +34,10 @@ const tours = JSON.parse(
 );
 
 const getAllTours = (req, res) => {
+  console.log(req.requestTime);
   res.status(200).json({
     status: "success",
+    requestedAt: req.requestTime,
     results: tours.length,
     data: {
       tours: tours,
