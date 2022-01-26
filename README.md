@@ -9,3 +9,4 @@ Tech stack
 - Morgan (HTTP request logger)
 - Custom script ("npm start")
 - Server routing, controllers
+- Dotenv

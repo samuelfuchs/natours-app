@@ -4,7 +4,8 @@
   "description": "learning node, express and mongoDB",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start:dev": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +18,7 @@
   },
   "homepage": "https://github.com/samuelfuchs/natours-app#readme",
   "dependencies": {
+    "dotenv": "^14.3.2",
     "express": "^4.17.2",
     "morgan": "^1.10.0"
   }
