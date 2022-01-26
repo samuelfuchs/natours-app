@@ -7,11 +7,12 @@ const userRouter = require("./routes/userRoutes");
 const app = express();
 
 // 1) MIDDLEWARE
-
 app.use(morgan("dev"));
 
 // MIDDLEWARE - modify the incomming data
 app.use(express.json());
+
+app.use(express.static(`${__dirname}/public`));
 
 // Next is always the 3rd option. We can call it whatever we want
 app.use((req, res, next) => {
