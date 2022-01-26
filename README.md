@@ -11,3 +11,4 @@ Tech stack
 - Server routing, controllers
 - Dotenv
 - ES Lint config
+- MongoDB
