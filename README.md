@@ -10,3 +10,4 @@ Tech stack
 - Custom script ("npm start")
 - Server routing, controllers
 - Dotenv
+- ES Lint config

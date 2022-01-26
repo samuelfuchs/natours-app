@@ -1,14 +1,14 @@
-const express = require("express");
-const morgan = require("morgan");
+const express = require('express');
+const morgan = require('morgan');
 
-const tourRouter = require("./routes/tourRoutes");
-const userRouter = require("./routes/userRoutes");
+const tourRouter = require('./routes/tourRoutes');
+const userRouter = require('./routes/userRoutes');
 
 const app = express();
 
 // 1) MIDDLEWARE
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
+if (process.env.NODE_ENV === 'development') {
+  app.use(morgan('dev'));
 }
 
 // MIDDLEWARE - modify the incomming data
@@ -18,7 +18,7 @@ app.use(express.static(`${__dirname}/public`));
 
 // Next is always the 3rd option. We can call it whatever we want
 app.use((req, res, next) => {
-  console.log("Hello from the middleware!!");
+  console.log('Hello from the middleware!!');
   // we have to call next() to continue the cicle
   next();
 });
@@ -50,7 +50,7 @@ app.use((req, res, next) => {
 
 // SAME AS ABOVE BUT CLEANER
 
-app.use("/api/v1/tours", tourRouter);
-app.use("/api/v1/users", userRouter);
+app.use('/api/v1/tours', tourRouter);
+app.use('/api/v1/users', userRouter);
 
 module.exports = app;
