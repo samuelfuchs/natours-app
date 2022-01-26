@@ -12,3 +12,4 @@ Tech stack
 - Dotenv
 - ES Lint config
 - MongoDB
+- Mongoose
