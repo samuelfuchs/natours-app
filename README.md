@@ -13,4 +13,4 @@ Tech stack
 - ES Lint config
 - MongoDB
 - Mongoose
-- Advanced filtering, sorting
+- Advanced filtering, sorting, field limiting
