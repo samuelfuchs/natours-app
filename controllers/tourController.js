@@ -1,4 +1,4 @@
-const Tour = require('./../models/tourModel');
+const Tour = require('../models/tourModel');
 
 // const tours = JSON.parse(
 //   fs.readFileSync(`${__dirname}/../dev-data/data/tours-simple.json`)
@@ -105,6 +105,8 @@ exports.createTour = async (req, res) => {
 };
 
 exports.updateTour = async (req, res) => {
+  console.log('UPDATE: ', req.params.id);
+
   try {
     const tour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
@@ -118,17 +120,26 @@ exports.updateTour = async (req, res) => {
       },
     });
   } catch (err) {
-    res.status(400).json({
+    res.status(404).json({
       status: 'fail',
       message: 'Invalid data sent!!',
     });
   }
 };
 
-exports.deleteTour = (req, res) => {
-  // 204 - Data no longer exists
-  res.status(204).json({
-    status: 'success',
-    data: null,
-  });
+exports.deleteTour = async (req, res) => {
+  console.log('DELETE: ', req.params.id);
+  try {
+    await Tour.findByIdAndDelete(req.params.id);
+
+    res.status(204).json({
+      status: 'success',
+      data: null,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: 'whyyyyyyyyyyyyyyyyyyy',
+    });
+  }
 };
