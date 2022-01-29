@@ -35,6 +35,10 @@ exports.getAllTours = async (req, res) => {
     const excludedFields = ['page', 'sort', 'limit', 'fields'];
     excludedFields.forEach((el) => delete queryObj[el]);
 
+    let queryStr = JSON.stringify(queryObj);
+    queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
+    console.log(JSON.parse(queryStr));
+
     // 1st way of FILTERING
     // const tours = await Tour.find({
     //   duration: 5,
@@ -50,7 +54,7 @@ exports.getAllTours = async (req, res) => {
 
     // Other way of FILTERING:
     // need to exclude pagination
-    const query = Tour.find(queryObj);
+    const query = Tour.find(JSON.parse(queryStr));
 
     // Execute query
     const tours = await query;
