@@ -225,7 +225,7 @@ exports.createTour = async (req, res) => {
 };
 
 exports.updateTour = async (req, res) => {
-  console.log('UPDATE: ', req.params.id);
+  console.log('UPDATED: ', req.params.id);
 
   try {
     const tour = await Tour.findByIdAndUpdate(req.params.id, req.body, {
@@ -248,7 +248,7 @@ exports.updateTour = async (req, res) => {
 };
 
 exports.deleteTour = async (req, res) => {
-  console.log('DELETE: ', req.params.id);
+  console.log('DELETED: ', req.params.id);
   try {
     await Tour.findByIdAndDelete(req.params.id);
 
