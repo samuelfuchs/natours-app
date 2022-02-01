@@ -15,3 +15,5 @@ Tech stack
 - Mongoose
 - Advanced filtering, sorting, field limiting, pagination, aliasing
 - Aggregation pipeline
+- Virtual properties
+- Slugify
