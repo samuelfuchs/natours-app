@@ -14,3 +14,4 @@ Tech stack
 - MongoDB
 - Mongoose
 - Advanced filtering, sorting, field limiting, pagination, aliasing
+- Aggregation pipeline
