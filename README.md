@@ -2,6 +2,8 @@
 
 Tech stack
 
+These are some of the things I learned:
+
 - NodeJs,
 - ExpressJs (Server framework for Node.js),
 - Postman (API testing),
