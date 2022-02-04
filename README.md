@@ -1,5 +1,7 @@
 # Natours App
 
+This is a project based on the NodeJs Video Course by Jonas Schmedtmann (Udemy)
+
 Tech stack
 
 These are some of the things I learned:
